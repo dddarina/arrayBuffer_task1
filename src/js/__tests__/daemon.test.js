@@ -1,13 +1,14 @@
 import { Daemon } from "../Daemon";
 
 describe('Daemon', () => {
-  test('should create Daemon instance', () => {
+  test('should create instance', () => {
     const daemon = new Daemon();
     expect(daemon).toBeInstanceOf(Daemon);
   });
 
-  test('should inherit Character functionality', () => {
+  test('should inherit functionality', () => {
     const daemon = new Daemon();
-    expect(daemon.calculateAttack(2)).toBe(90);
+    daemon.distance = 4;
+    expect(daemon.attack).toBe(70);
   });
 });

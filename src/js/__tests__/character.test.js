@@ -18,21 +18,28 @@ describe('Character', () => {
     expect(character.stoned).toBe(true);
   });
 
+  test('should set and get distance', () => {
+    const character = new Character();
+    character.distance = 3;
+    expect(character.distance).toBe(3);
+  });
+
+  test('should set distance to 1 when value less than 1', () => {
+    const character = new Character();
+    character.distance = 0;
+    expect(character.distance).toBe(1);
+  });
+
   test('should calculate attack without stoned', () => {
     const character = new Character();
-    expect(character.calculateAttack(2)).toBe(90);
+    character.distance = 2;
+    expect(character.attack).toBe(90);
   });
 
   test('should calculate attack with stoned', () => {
     const character = new Character();
+    character.distance = 2;
     character.stoned = true;
-    expect(character.calculateAttack(2)).toBe(85);
-  });
-
-  test('should not return negative attack', () => {
-    const character = new Character();
-    character.attack = 1;
-    character.stoned = true;
-    expect(character.calculateAttack(10)).toBe(0);
+    expect(character.attack).toBe(85);
   });
 });

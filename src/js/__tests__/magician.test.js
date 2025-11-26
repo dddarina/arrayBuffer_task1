@@ -1,13 +1,14 @@
 import { Magician } from "../Magician";
 
 describe('Magician', () => {
-  test('should create Magician instance', () => {
+  test('should create instance', () => {
     const magician = new Magician();
     expect(magician).toBeInstanceOf(Magician);
   });
 
-  test('should inherit Character functionality', () => {
+  test('should inherit functionality', () => {
     const magician = new Magician();
-    expect(magician.calculateAttack(2)).toBe(90);
+    magician.distance = 3;
+    expect(magician.attack).toBe(80);
   });
 });
